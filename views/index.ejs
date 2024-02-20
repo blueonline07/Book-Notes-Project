@@ -1,0 +1,13 @@
+<%- include("partials/header.ejs") -%>
+<body>
+    <% for (var i = 0; i < data.length; i++){ %>
+    <div class="abook">
+        <figure>
+            <img src="<%= data[i].img %>" height="200">
+        </figure>
+        <h2><%= data[i].title %></h2>
+        <small>Author: <%= data[i].author %>. My rating: <%= data[i].rating %></small>
+    </div>
+    <% } %>
+</body>
+<%- include("partials/footer.ejs") -%>
