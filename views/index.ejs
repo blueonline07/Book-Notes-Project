@@ -1,12 +1,31 @@
 <%- include("partials/header.ejs") -%>
-<body>
+<body >
+    <div class="navbar">
+        <h1 style="text-align: center;">My library</h1>
+    </div>
+    <div class="book-search" >
+        <form action="/search" method="get">
+            <div class="searchBar">
+                <input type="text" name="search" id="searchInput" autocomplete="off" placeholder="Enter book name, author or isbn">
+            </div>
+            <div class="dropdown">
+                <ul id="dropdownList"></ul>
+            </div>
+        </form>
+    </div>
     <% for (var i = 0; i < data.length; i++){ %>
     <div class="abook">
-        <figure>
-            <img src="<%= data[i].img %>" height="200">
-        </figure>
-        <h2><%= data[i].title %></h2>
-        <small>Author: <%= data[i].author %>. My rating: <%= data[i].rating %></small>
+        <div class="book-cover">
+            <a href = "/book?title=<%= data[i].title %>&author=<%= data[i].author %>&coverId=<%= data[i].cover_i %>">
+                <img  src="https://covers.openlibrary.org/b/id/<%=data[i].cover_i %>-L.jpg" height="200">
+            </a>
+        </div>
+        <div class="book-info">
+            <h2><%= data[i].title %></h2>
+            <small>Author: <%= data[i].author %></small>
+            <p><%= data[i].content%></p>
+        </div>
+        <button onclick="deleteData('<%= data[i].id %>')" type="button">Delete</button>
     </div>
     <% } %>
 </body>

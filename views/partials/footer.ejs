@@ -1,1 +1,18 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="http://benalman.com/code/projects/jquery-throttle-debounce/jquery.ba-throttle-debounce.js"></script>
+<script src="/index.js" charset="UTF-8"></script>
+<script>
+    async function deleteData(bookId){
+        try{
+            const resp = fetch(`/delete/${bookId}`,{
+                method: "delete"
+            })
+            
+            window.location.href = "/";
+        }
+        catch{
+            console.log(err);
+        }
+    }
+</script>
 </html>

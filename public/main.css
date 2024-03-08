@@ -7,17 +7,112 @@ body {
     line-height: 30px;
     background-color: #fff;
     color: #000;
+    margin-top: 50px;
+}
+.dropdown {
+    margin: 0 auto;
+    width: 24em;
+    position: absolute;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+.listItem:hover {
+    color: #000;
+    background-color: antiquewhite;
+}
+.listItem {
+    background-color: #666;
+    color: #fff;
+    font-size: 0.7em;
+    margin: 0;
+    padding: 0;
+}
+.listItem .book-info{
+    height: 100%;
+}
+.listItem .book-cover {
+    height: 30px;
+}
+.listItem img {
+    height: 30px;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+textarea{
+    min-height: 200px;
+    min-width: 400px;
+    text-align: justify;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.book-search{
+    width: 60%;
+    margin: 0 auto;
+}
+.searchBar > input {
+    width: 100%;
+    height: 30px;
+    padding: 0;
 }
 small{
     font-size: 0.8em;
     color: #666;
 }
+.book-search>input{
+    margin: 0 auto;
+}
 .abook {
-    border: 1px solid black;
     height: 250px;
     margin-top: 30px;
 }
-figure img {
+.book-cover {
     float: left;
+    margin-left: 2em;
     margin-right: 2em;
 }
+
+/* rating */
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
